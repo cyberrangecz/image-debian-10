@@ -45,6 +45,8 @@ Password for debian user is disabled, use SSH keys instead.
 
 SSH server is enabled.
 
+Image uses interface naming of type `enp0s3`.
+
 ## Usage
 
 ### QEMU
