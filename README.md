@@ -1,4 +1,4 @@
-# Debian-10-desktop-amd64
+# Debian-10-server-amd64
 
 ## Introduction
 
