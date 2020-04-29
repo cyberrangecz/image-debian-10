@@ -101,6 +101,7 @@
 	},
         {
             "scripts": [
+                "scripts/update.sh",
                 "scripts/zerodisk.sh"
             ],
             "type": "shell"
