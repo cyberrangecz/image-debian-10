@@ -101,33 +101,30 @@
 	},
         {
             "scripts": [
-                "scripts/update.sh",
                 "scripts/zerodisk.sh"
             ],
             "type": "shell"
         },
         {
             "scripts": [
-                "scripts/packages.sh"
+                "scripts/packages.sh",
+                "scripts/fixesQEMU.sh"
             ],
             "type": "shell",
             "only": ["debian-qemu"]
         },
         {
-            "inline": ["printf '\nauto enp0s3\niface enp0s3 inet dhcp\n\n' >> /etc/network/interfaces"],
-            "type": "shell",
-            "only": ["debian-vbox"]
-        },
-        {
             "scripts": [
                 "scripts/addVagrantUser.sh",
-                "scripts/guestAdditions.sh"
+                "scripts/guestAdditions.sh",
+                "scripts/fixesVBox.sh"
             ],
             "type": "shell",
             "only": ["debian-vbox"]
         },
         {
             "scripts": [
+                "scripts/fixes.sh",
                 "scripts/cleanup.sh"
             ],
             "type": "shell"
