@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repo contains Packer files for building Debian 10.3 base image for QEMU/OpenStack and for VirtualBox/Vagrant.
+This repo contains Packer files for building Debian 10.4 base image for QEMU/OpenStack and for VirtualBox/Vagrant.
 
 Both images use interface naming of type `enp0s3`.
 
