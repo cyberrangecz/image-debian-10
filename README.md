@@ -6,6 +6,8 @@ This repo contains Packer files for building Debian 10.4 base image for QEMU/Ope
 
 Both images use interface naming of type `enp0s3`.
 
+General requirement and instructions how to create and import created images to OpenStack/Vagrant are available in [wiki](https://gitlab.ics.muni.cz/muni-kypo-images/muni-kypo-images-wiki/-/wikis/image-packer).
+
 ## Image for QEMU/OpenStack
 
 There is one user account:
@@ -20,5 +22,5 @@ There is one user account:
 
 ## Known issues and requested features
 
-See [issues](https://gitlab.ics.muni.cz/CSIRT-MU/DEVOPS/debian-10-amd64/-/issues).
+See [issues](https://gitlab.ics.muni.cz/muni-kypo-images/debian-10-amd64/-/issues).
 
