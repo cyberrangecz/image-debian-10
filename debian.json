@@ -1,9 +1,7 @@
 {
-    "_comment": "qemu at MacOS doesn't support kvm accelerator, it will use the default accelerator, if no accelerator is defined",
-    "__comment": "qemu at MacOS doesn't come with SDL support, use_default_display must be set to true",
     "builders": [
         {
-            "accelerator": "kvm",
+            "use_default_display": "{{user `headless`}}",
             "boot_command": [
                 "<esc><wait>",
                 "install",
@@ -15,7 +13,7 @@
                 "<enter>"
             ],
             "boot_wait": "{{user `boot_wait`}}",
-	    "boot_key_interval": "10ms",
+            "boot_key_interval": "10ms",
             "disk_interface": "virtio-scsi",
             "disk_size": "{{ user `disk_size` }}",
             "format": "raw",
@@ -24,9 +22,8 @@
             "http_port_max": "{{user `http_port_max`}}",
             "http_port_min": "{{user `http_port_min`}}",
             "iso_checksum": "{{user `iso_checksum`}}",
-            "iso_checksum_type": "{{user `iso_checksum_type`}}",
             "iso_url": "{{user `iso_url`}}",
-            "name": "debian-qemu",
+            "name": "qemu",
             "net_device": "virtio-net",
             "output_directory": "target-qemu",
             "qemuargs": [
@@ -46,7 +43,9 @@
             "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
             "type": "qemu",
             "vm_name": "{{user `vm_name`}}",
-            "vnc_bind_address": "{{user `vnc_bind_address`}}"
+            "vnc_bind_address": "{{user `vnc_vrdp_bind_address`}}",
+            "vnc_port_min": "{{user `vnc_vrdp_port`}}",
+            "vnc_port_max": "{{user `vnc_vrdp_port`}}"
         },
         {
             "boot_command": [
@@ -67,9 +66,8 @@
             "http_port_max": "{{user `http_port_max`}}",
             "http_port_min": "{{user `http_port_min`}}",
             "iso_checksum": "{{user `iso_checksum`}}",
-            "iso_checksum_type": "{{user `iso_checksum_type`}}",
             "iso_url": "{{user `iso_url`}}",
-            "name": "debian-vbox",
+            "name": "vbox",
             "vboxmanage": [
                 [
                     "modifyvm",
@@ -90,7 +88,10 @@
             "ssh_username": "{{user `ssh_username`}}",
             "ssh_wait_timeout": "{{user `ssh_wait_timeout`}}",
             "type": "virtualbox-iso",
-            "vm_name": "{{user `vm_name`}}"
+            "vm_name": "{{user `vm_name`}}",
+            "vrdp_bind_address": "{{user `vnc_vrdp_bind_address`}}",
+            "vrdp_port_min": "{{user `vnc_vrdp_port`}}",
+            "vrdp_port_max": "{{user `vnc_vrdp_port`}}"
     	}
     ],
     "provisioners": [
@@ -111,7 +112,7 @@
                 "scripts/fixesQEMU.sh"
             ],
             "type": "shell",
-            "only": ["debian-qemu"]
+            "only": ["qemu"]
         },
         {
             "scripts": [
@@ -120,7 +121,7 @@
                 "scripts/fixesVBox.sh"
             ],
             "type": "shell",
-            "only": ["debian-vbox"]
+            "only": ["vbox"]
         },
         {
             "scripts": [
@@ -134,20 +135,19 @@
        {
   	    "type": "vagrant",
   	    "output" : "target-vbox/debian.box",
-  	    "only": ["debian-vbox"]
+        "only": ["vbox"]
        }
     ],
     "variables": {
         "boot_wait": "5s",
         "cpus": "4",
         "disk_size": "16384",
-        "headless": "false",
+        "headless": "true",
         "http_directory": "http",
         "http_port_max": "10089",
         "http_port_min": "10082",
-        "iso_checksum": "b325326614f26760fc8d4fad48df3bf48fb8a3a437298bbe3d01c5a759c889d4",
-        "iso_checksum_type": "sha256",
-        "iso_url": "https://cdimage.debian.org/mirror/cdimage/archive/10.4.0/amd64/iso-cd/debian-10.4.0-amd64-xfce-CD-1.iso",
+        "iso_checksum": "fff31b94f193e094400281d3f01589456562c8017f11cb1744fc325d83ba2ed4",
+        "iso_url": "https://cdimage.debian.org/mirror/cdimage/archive/10.6.0/amd64/iso-cd/debian-10.6.0-amd64-xfce-CD-1.iso",
         "memory_size": "4096",
         "shutdown_command": "shutdown -P now",
         "ssh_password": "toor",
@@ -155,6 +155,7 @@
         "ssh_username": "root",
         "ssh_wait_timeout": "90m",
         "vm_name": "debian",
-        "vnc_bind_address": "0.0.0.0"
+        "vnc_vrdp_bind_address": "127.0.0.1",
+        "vnc_vrdp_port": "5900"
     }
 }
