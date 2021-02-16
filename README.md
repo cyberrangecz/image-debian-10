@@ -1,8 +1,8 @@
-# Debian-10-server-amd64
+# Debian-10-server
 
 ## Introduction
 
-This repo contains Packer files for building Debian 10.4 base image for QEMU/OpenStack and for VirtualBox/Vagrant.
+This repo contains Packer files for building Debian 10.6 amd64 base image for QEMU/OpenStack and for VirtualBox/Vagrant.
 
 Both images use interface naming of type `enp0s3`.
 
@@ -22,5 +22,5 @@ There is one user account:
 
 ## Known issues and requested features
 
-See [issues](https://gitlab.ics.muni.cz/muni-kypo-images/debian-10-amd64/-/issues).
+See [issues](https://gitlab.ics.muni.cz/muni-kypo-images/debian-10/-/issues).
 
