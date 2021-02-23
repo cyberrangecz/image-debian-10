@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This repo contains Packer files for building Debian 10.6 amd64 base image for QEMU/OpenStack and for VirtualBox/Vagrant.
+This repo contains Packer files for building Debian 10.8 amd64 base image for QEMU/OpenStack and for VirtualBox/Vagrant.
 
 Both images use interface naming of type `enp0s3`.
 
