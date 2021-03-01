@@ -1,22 +1,29 @@
 #!/bin/bash -x
 
-# Remove old python
-DEBIAN_FRONTEND=noninteractive sudo apt-get remove -y python3 && sudo apt-get -y autoremove
-
 # Install python3.9.1
-DEBIAN_FRONTEND=noninteractive sudo apt-get update -y && sudo apt-get install -y wget build-essential libreadline-gplv2-dev libncursesw5-dev \
-     libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev libffi-dev zlib1g-dev 
-#&& sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev
+DEBIAN_FRONTEND=noninteractive sudo apt-get update -y && sudo apt-get install -y git wget build-essential zlib1g-dev libbz2-dev \
+    libncurses5-dev libreadline-gplv2-dev libsqlite3-dev libssl-dev liblzma-dev tk8.6-dev libgdbm-compat-dev libffi-dev libgdbm-dev libapt-pkg-dev
 wget https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz
 tar -xf Python-3.9.1.tgz
 cd Python-3.9.1
 ./configure --enable-optimizations
-make -j 4 --quiet
-sudo make install -j 4 --quiet
-sudo ln -s /usr/local/bin/python3.9 /usr/bin/python3
-sudo ln -s /usr/local/bin/pip3.9 /usr/bin/pip3
+sudo make -j 4 --quiet
+sudo make install -j 4 --silent
+sudo ln -sf /usr/local/bin/python3.9 /usr/local/bin/python3
 cd ..
 sudo rm -rf Python-3.9.1*
 
 # Install ansible
-sudo pip3 install ansible --no-input
+sudo pip3 install ansible==2.10.6 --no-input
+
+# Install python-apt module
+git clone https://salsa.debian.org/apt-team/python-apt.git
+cd python-apt/
+git checkout 1.8.2  # depends on libapt-pkg-dev version
+sudo python3 setup.py build
+sudo python3 setup.py install
+cd ..
+sudo rm -rf python-apt
+
+# Install more modules
+sudo pip3 install asn1crypto blinker chardet configobj curl "idna<3" jsonpatch jsonpointer jsonschema jwt oauthlib python-debian python-debianbts requests six urllib3 --no-input

@@ -1,6 +1,10 @@
 # Changelog
 
-## [qemu-0.3.0], [vbox-0.3.0]
+## [qemu-0.3.1], [vbox-0.3.1] - 2021-3-1
+### Fixed
+- Python 3.9 pip and Python3.9 modules
+
+## [qemu-0.3.0], [vbox-0.3.0] - 2021-2-23
 ### Changed
 - Debian version from 10.6 to 10.8
 - Python version to 3.9.1
@@ -22,3 +26,5 @@
 [vbox-0.2.0]: https://gitlab.ics.muni.cz/muni-kypo-images/debian-10-amd64/-/tree/vbox-0.2.0
 [qemu-0.3.0]: https://gitlab.ics.muni.cz/muni-kypo-images/debian-10-amd64/-/tree/qemu-0.3.0
 [vbox-0.3.0]: https://gitlab.ics.muni.cz/muni-kypo-images/debian-10-amd64/-/tree/vbox-0.3.0
+[qemu-0.3.1]: https://gitlab.ics.muni.cz/muni-kypo-images/debian-10-amd64/-/tree/qemu-0.3.1
+[vbox-0.3.1]: https://gitlab.ics.muni.cz/muni-kypo-images/debian-10-amd64/-/tree/vbox-0.3.1
