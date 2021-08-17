@@ -14,7 +14,7 @@ cd ..
 sudo rm -rf Python-3.9.1*
 
 # Install ansible
-sudo pip3 install ansible==2.10.6 --no-input
+sudo pip3 install ansible --no-input
 
 # Install python-apt module
 git clone https://salsa.debian.org/apt-team/python-apt.git
@@ -26,4 +26,4 @@ cd ..
 sudo rm -rf python-apt
 
 # Install more modules
-sudo pip3 install asn1crypto blinker chardet configobj curl "idna<3" jsonpatch jsonpointer jsonschema jwt oauthlib python-debian python-debianbts requests six urllib3 --no-input
+sudo pip3 install asn1crypto blinker chardet configobj "idna<3" jsonpatch jsonpointer jsonschema jwt oauthlib python-debian python-debianbts requests six urllib3 --no-input

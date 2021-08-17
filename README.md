@@ -1,6 +1,6 @@
 # Debian 10 server
 
-This repo contains Packer files for building Debian 10.8 amd64 base image for QEMU/OpenStack and for VirtualBox/Vagrant using Gitlab CI/CD.
+This repo contains Packer files for building Debian 10.10 amd64 base image for QEMU/OpenStack and for VirtualBox/Vagrant using Gitlab CI/CD.
 
 Both images use interface naming of type `enp0s3`.
 
