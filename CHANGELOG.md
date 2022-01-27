@@ -1,5 +1,9 @@
 # Changelog
 
+## [qemu-0.4.1] - 2022-01-27
+### Fixed
+- Hostname is added on boot to /etc/hosts [#4](https://gitlab.ics.muni.cz/muni-kypo-images/debian-10/-/issues/4)
+
 ## [qemu-0.4.0], [vbox-0.4.0] - 2021-08-17
 ### Changed
 - Debian version from 10.8 to 10.10
@@ -34,3 +38,4 @@
 [vbox-0.3.1]: https://gitlab.ics.muni.cz/muni-kypo-images/debian-10-amd64/-/tree/vbox-0.3.1
 [qemu-0.4.0]: https://gitlab.ics.muni.cz/muni-kypo-images/debian-10-amd64/-/tree/qemu-0.4.0
 [vbox-0.4.0]: https://gitlab.ics.muni.cz/muni-kypo-images/debian-10-amd64/-/tree/vbox-0.4.0
+[qemu-0.4.1]: https://gitlab.ics.muni.cz/muni-kypo-images/debian-10-amd64/-/tree/qemu-0.4.1
